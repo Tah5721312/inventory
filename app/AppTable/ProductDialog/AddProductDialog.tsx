@@ -141,6 +141,7 @@ export default function AddProductDialog({
           });
           dialogCloseRef.current?.click();
           loadProducts();
+        setSelectedProduct(null); // ⬅️ أضف هذا السطر
           setOpenProductDialog(false);
         }
       } else {
@@ -164,6 +165,7 @@ export default function AddProductDialog({
             description: "Product updated successfully!",
           });
           loadProducts();
+          setSelectedProduct(null); // ⬅️ أضف هذا السطر هنا كمان
           setOpenProductDialog(false);
         } else {
           toast({

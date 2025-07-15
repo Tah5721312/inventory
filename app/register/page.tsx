@@ -28,16 +28,16 @@ export default function Register() {
         email,
         password,
       });
+if (response.status !== 200 && response.status !== 201) {
+  const data = response.data;
+  throw new Error(data.error || "Registration failed.");
+}
 
-      if (response.status !== 200) {
-        const data = response.data;
-        throw new Error(data.error);
-      }
 
       setMessage("Registration successful! Redirecting to login...");
-      setTimeout(() => {
+  
         router.push("/login");
-      }, 2000);
+
     } catch (error) {
       setIsError(true);
       if (error instanceof Error) {
